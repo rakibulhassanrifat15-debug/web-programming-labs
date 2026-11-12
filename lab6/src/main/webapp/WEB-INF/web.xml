@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
+         version="6.1">
+
+  <display-name>Lab 6 Authentication</display-name>
+
+  <!-- Starting page -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- Protected resources -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Protected pages</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+
+    <auth-constraint>
+      <role-name>manager</role-name>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- BASIC authentication -->
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Lab 6 Authentication</realm-name>
+  </login-config>
+
+  <!-- Allowed roles -->
+  <security-role>
+    <role-name>manager</role-name>
+  </security-role>
+
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+
+</web-app>
